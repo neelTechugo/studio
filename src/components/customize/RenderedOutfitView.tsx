@@ -22,6 +22,11 @@ const RenderedOutfitView: React.FC<RenderedOutfitViewProps> = ({ imageUrl, descr
       link.click();
       document.body.removeChild(link);
     }
+    
+    
+    
+    //
+    //
   };
 
   const handleShare = async () => {
@@ -30,13 +35,22 @@ const RenderedOutfitView: React.FC<RenderedOutfitViewProps> = ({ imageUrl, descr
         // Convert data URL to Blob for sharing
         const response = await fetch(imageUrl);
         const blob = await response.blob();
+      
+      //
         const file = new File([blob], `virtufit_outfit.png`, { type: blob.type });
-
+//
         await navigator.share({
           title: `My VirtuFit Outfit: ${outfitName || 'Custom Design'}`,
           text: description || `Check out my virtually tried-on outfit from VirtuFit!`,
           files: [file],
-        });
+  
+  
+  
+        })
+        
+        
+        
+        ;
       } catch (error) {
         console.error('Error sharing:', error);
         // Fallback for when sharing files is not supported or fails for other reasons
